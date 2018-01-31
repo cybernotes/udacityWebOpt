@@ -526,12 +526,12 @@ function updatePositions() {
 
   var count = document.body.scrollTop / 1250;
 
-  // replaced querySelectorAll with getElementsByClassName for better performance
+  // changed querySelectorAll with getElementsByClassName for overall performance
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
-    //  calculation stored in variable count outside the loop for better performance!
-    var phase = Math.sin(count + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + "px";
+    //using the length of the items instead of a fixed number
+    var phase = Math.sin(count + (i % 5)); // taking the number of items or current i and applying the equation
+    items[i].style.left = items[i].basicLeft + 100 * phase + "px"; //f
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -552,10 +552,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
 
-  // Reduced number of pizzas needed to fill the browser window and stored movingPizzas1 id in variable outside loop.
-  // Used getElementById instead of query selector for increased performance.
+  // the number of pizzas are smaller now the original 200 was to much
+  // Used getElementById instead of query selector for better overall performance
   var move = document.getElementById("movingPizzas1");
-  for (var i = 0; i < 30; i++) {
+  for (var i = 0; i < 35; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
