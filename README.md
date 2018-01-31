@@ -16,5 +16,5 @@ To optimize pizza.html you will need to make adjustments in main.js to make it r
 * Changed the amount of Pizzas from the 200 max it had to 35 to allow for a more stable scrolling experience.
 
 resources used as reference:
-https://github.com/NicoleIrene/UWebsiteOptimize
-https://github.com/sadaf30/websiteOptimize
+* https://github.com/NicoleIrene/UWebsiteOptimize
+* https://github.com/sadaf30/websiteOptimize
