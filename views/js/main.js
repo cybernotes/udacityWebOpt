@@ -468,24 +468,25 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
     var newPizza = document.getElementsByClassName("randomPizzaContainer");
     //by changing from querySelector to getElementsByClassName it makes it easier and more direct
-    var dx = determineDx(newPizza)[0], size);
-    // newWidth is to change the width of the selected size on the slider
-    var newwidth = (newPizza)[0].offsetWidth + dx) + 'px';
-    newPizza[0].style.width = newwidth;
+    var dx = determineDx(newPizza)[0],
+      size);
+  // newWidth is to change the width of the selected size on the slider
+  var newwidth = (newPizza)[0].offsetWidth + dx) + 'px';
+newPizza[0].style.width = newwidth;
 
-    for (var i = 0, len = document.getElementsByClassName("randomPizzaContainer").length; i < len; i++) {
-      newPizza[i].style.width = newwidth; // affects the selected 'size'
-    }
-  }
+for (var i = 0, len = document.getElementsByClassName("randomPizzaContainer").length; i < len; i++) {
+  newPizza[i].style.width = newwidth; // affects the selected 'size'
+}
+}
 
 
-  changePizzaSizes(size);
+changePizzaSizes(size);
 
-  // User Timing API is awesome
-  window.performance.mark("mark_end_resize");
-  window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
-  var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
-  console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms");
+// User Timing API is awesome
+window.performance.mark("mark_end_resize");
+window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
+var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
+console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms");
 };
 
 window.performance.mark("mark_start_generating"); // collect timing data
@@ -525,7 +526,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
 
-  var count = (document.documentElement.scrollTop || document.body.scrollTop)/ 1250;
+  var count = (document.documentElement.scrollTop || document.body.scrollTop) / 1250;
 
   // changed querySelectorAll with getElementsByClassName for overall performance
   var items = document.getElementsByClassName('mover');
@@ -552,12 +553,10 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-var rows = height / s;
-var pizzaNum = rows * cols;
   // the number of pizzas are smaller now the original 200 was to much
   // Used getElementById instead of query selector for better overall performance
   var move = document.getElementById("movingPizzas1");
-  for (var i = 0; i < pizzaNum; i++) {
+  for (var i = 0; i < 35; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
