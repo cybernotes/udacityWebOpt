@@ -463,16 +463,16 @@ var resizePizzas = function(size) {
 
     return dx;
   }
-
+  var newPizza = document.getElementsByClassName("randomPizzaContainer");
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var newPizza = document.getElementsByClassName("randomPizzaContainer");
+
     //by changing from querySelector to getElementsByClassName it makes it easier and more direct
     var dx = determineDx(newPizza)[0],
       size;
     // newWidth is to change the width of the selected size on the slider
     var newWidth = ((newPizza)[0].offsetWidth + dx) + 'px';
-    for (var i = 0, len = newPizza.length; i < len; i--) {
+    for (var i = 0, newPizza.length > i; i++) {
       newPizza[i].style.width = newWidth; // affects the selected 'size'
     }
   }
