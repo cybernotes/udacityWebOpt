@@ -466,12 +466,13 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    //by changing from querySelector to getElementsByClassName it makes it easier and more direct
-    var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
-    // newWidth is to change the width of the selected size on the slider
-    var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
-    document.getElementsByClassName("randomPizzaContainer")[0].style.width = newwidth;
     var newPizza = document.getElementsByClassName("randomPizzaContainer");
+    //by changing from querySelector to getElementsByClassName it makes it easier and more direct
+    var dx = determineDx(newPizza)[0], size);
+    // newWidth is to change the width of the selected size on the slider
+    var newwidth = (newPizza)[0].offsetWidth + dx) + 'px';
+    newPizza[0].style.width = newwidth;
+
     for (var i = 0, len = document.getElementsByClassName("randomPizzaContainer").length; i < len; i++) {
       newPizza[i].style.width = newwidth; // affects the selected 'size'
     }
@@ -490,8 +491,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -524,7 +525,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
 
-  var count = document.body.scrollTop / 1250;
+  var count = (document.documentElement.scrollTop || document.body.scrollTop)/ 1250;
 
   // changed querySelectorAll with getElementsByClassName for overall performance
   var items = document.getElementsByClassName('mover');
@@ -551,11 +552,12 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-
+var rows = height / s;
+var pizzaNum = rows * cols;
   // the number of pizzas are smaller now the original 200 was to much
   // Used getElementById instead of query selector for better overall performance
   var move = document.getElementById("movingPizzas1");
-  for (var i = 0; i < 35; i++) {
+  for (var i = 0; i < pizzaNum; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
