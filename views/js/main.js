@@ -468,7 +468,7 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
     var newPizza = document.getElementsByClassName("randomPizzaContainer");
     //by changing from querySelector to getElementsByClassName it makes it easier and more direct
-    var dx = determineDx(newPizza)[0], size;
+    var dx = determineDx(newPizza)[0];
     // newWidth is to change the width of the selected size on the slider
     var newWidth = ((newPizza)[0].offsetWidth + dx) + 'px';
     newPizza[0].style.width = newWidth;
