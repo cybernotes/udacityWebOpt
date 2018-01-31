@@ -471,9 +471,9 @@ var resizePizzas = function(size) {
     var dx = determineDx(newPizza)[0],
       size;
     // newWidth is to change the width of the selected size on the slider
-    var newwidth = ((newPizza)[0].offsetWidth + dx) + 'px';
+    var newWidth = ((newPizza)[0].offsetWidth + dx) + 'px';
     for (var i = 0, len = newPizza.length; i < len; i--) {
-      newPizza[i].style.width = newwidth; // affects the selected 'size'
+      newPizza[i].style.width = newWidth; // affects the selected 'size'
     }
   }
 
