@@ -475,7 +475,7 @@ var resizePizzas = function(size) {
     var newWidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px'; /*assigns a variable to an equation where it takes the randomPizzaContainer and adds the # from dx plus what px is creating the new width for the pizza*/
     var pizza = document.querySelectorAll(".randomPizzaContainer"); //selects all the elements in randomPizzaContainer and makes it a variable here.
     for (var i = pizza.length; i--;) { // going through the length of the current pizza
-      pizza[i].style.width = newWidth; //taking that length and assigning it as a newWidth 
+      pizza[i].style.width = newWidth; //taking that length and assigning it as a newWidth
     }
   }
 
