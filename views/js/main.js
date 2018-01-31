@@ -471,11 +471,11 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
 
   function changePizzaSizes(size) { //fixed forced synchronous layout bottleneck
-    var dx = determineDx(document.querySelector(".randomPizzaContainer"))
-    var newWidth = (document.querySelector("randomPizzaContainer").offsetWidth + dx) + 'px';
-    var pizza = document.querySelectorAll(".randomPizzaContainer");
-    for (var i = pizza.length; i--;) {
-      pizza[i].style.width = newWidth;
+    var dx = determineDx(document.querySelector(".randomPizzaContainer")) // assigns a variable to the function DetermineDx
+    var newWidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px'; /*assigns a variable to an equation where it takes the randomPizzaContainer and adds the # from dx plus what px is creating the new width for the pizza*/
+    var pizza = document.querySelectorAll(".randomPizzaContainer"); //selects all the elements in randomPizzaContainer and makes it a variable here.
+    for (var i = pizza.length; i--;) { // going through the length of the current pizza
+      pizza[i].style.width = newWidth; //taking that length and assigning it as a newWidth 
     }
   }
 
