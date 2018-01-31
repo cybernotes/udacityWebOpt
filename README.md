@@ -11,6 +11,6 @@ The aim of this project was to remove all the jank slowing the site down and mak
 #### Part 2: Optimize Frames per Second in pizza.html
 To optimize pizza.html you will need to make adjustments in main.js to make it run at a more stable 60fps. This will prevent any jank from appearing.
 
-*Fixed how the slider responded to movement.
+* Fixed how the slider responded to movement.
 * Used getElementById or getElementByClassName instead of querySelectors to make the page more efficient
-*Changed the amount of Pizzas from the 200 max it had to 35 to allow for a more stable scrolling experience. 
+* Changed the amount of Pizzas from the 200 max it had to 35 to allow for a more stable scrolling experience.
