@@ -463,10 +463,10 @@ var resizePizzas = function(size) {
 
     return dx;
   }
-  var newPizza = document.getElementsByClassName("randomPizzaContainer");
+
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-
+    var newPizza = document.getElementsByClassName("randomPizzaContainer");
     //by changing from querySelector to getElementsByClassName it makes it easier and more direct
     var dx = determineDx(newPizza)[0],
       size;
