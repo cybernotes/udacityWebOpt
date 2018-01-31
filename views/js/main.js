@@ -1,16 +1,12 @@
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
-
 There are two major issues in this code that lead to sub-60fps performance. Can
 you spot and fix both?
-
-
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
 browser console. To learn more about User Timing API, check out:
 http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
 Creator:
 Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
@@ -469,13 +465,11 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-
   function changePizzaSizes(size) {
-    var dx = determineDx(document.querySelector(".randomPizzaContainer"), size); // assigns a variable to the function DetermineDx
-    var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px'; //assigns a variable to an equation where it takes the randomPizzaContainer and adds the # from dx plus what px is creating the new width for the pizza
-    var pizza = document.querySelectorAll(".randomPizzaContainer"); //selects all the elements in randomPizzaContainer and makes it a variable here.
-    for (var i = pizza.length; i--;) { // going through the length of the current pizza
-      pizza[i].style.width = newwidth; //taking that length and assigning it as a newWidth
+    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
