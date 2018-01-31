@@ -465,12 +465,15 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) { //fixed forced synchronous layout bottleneck
-    var dx = determineDx(document.querySelector(".randomPizzaContainer")) // assigns a variable to the function DetermineDx
-    var newWidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px'; /*assigns a variable to an equation where it takes the randomPizzaContainer and adds the # from dx plus what px is creating the new width for the pizza*/
-    var pizza = document.querySelectorAll(".randomPizzaContainer"); //selects all the elements in randomPizzaContainer and makes it a variable here.
-    for (var i = pizza.length; i--;) { // going through the length of the current pizza
-      pizza[i].style.width = newWidth; //taking that length and assigning it as a newWidth
+  function changePizzaSizes(size) {
+    //by changing from querySelector to getElementsByClassName it makes it easier and more direct
+    var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
+    // newWidth is to change the width of the selected size on the slider
+    var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
+    document.getElementsByClassName("randomPizzaContainer")[0].style.width = newwidth;
+    var newPizza = document.getElementsByClassName("randomPizzaContainer");
+    for (var i = 0, len = document.getElementsByClassName("randomPizzaContainer").length; i < len; i++) {
+      newPizza[i].style.width = newwidth; // affects the selected 'size'
     }
   }
 
